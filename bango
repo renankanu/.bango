@@ -1,0 +1,20 @@
+#! /bin/bash
+
+if [ $1 == 'init-project' ]; then
+    sudo mkdir -p /projenice/application
+    sudo mkdir -p /projenice/data
+    sudo mkdir -p /projenice/logs/application
+
+    sudo chown -R ${USER}:${USER} /projenice
+
+    git clone https://github.com/renankanu/projenice-api.git /projenice/application/projenice-api
+fi
+
+if [ $1 == 'build-project' ]; then
+    cd /projenice/application/projenice-api
+    ./mvnw install
+fi
+
+if [ $1 == 'docker-up' ]; then
+    docker-compose up -d
+fi

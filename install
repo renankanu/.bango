@@ -1,0 +1,8 @@
+#! /bin/bash
+
+sudo chmod +x ~/.bango/bango
+
+if [ -f /usr/local/bin/bango ]; then
+    sudo rm /usr/local/bin/bango
+fi
+sudo ln -s ~/.bango/bango /usr/local/bin/bango
