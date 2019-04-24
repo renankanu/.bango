@@ -19,6 +19,8 @@ services:
       context: /projenice/application/projenice-api/
       dockerfile: Dockerfile
     restart: always
+    volumes:
+      - /projenice/application/projenice-api/target/base-api.jar:/base-api.jar
     depends_on:
       - db
 
